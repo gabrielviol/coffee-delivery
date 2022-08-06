@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Container = styled.main`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 544px;
     left: 0px;
     right: 0px;
@@ -20,12 +20,13 @@ export const Container = styled.main`
 export const ContainerIntro = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+    height: 22rem;
 
     section {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
         padding: 0px;
         gap: 16px;
 
@@ -47,6 +48,8 @@ export const ContainerIntro = styled.div`
             order: 0;
             align-self: stretch;
             flex-grow: 0;
+
+            color: ${(props) => props.theme['base-title']};
         }
         p{
             width: 588px;
@@ -61,20 +64,64 @@ export const ContainerIntro = styled.div`
             order: 1;
             align-self: stretch;
             flex-grow: 0;
+
+            color: ${(props) => props.theme['base-subtitle']};
         }
     }
 
     table{
         display: flex;
-        justify-content: space-between;
-        border: 2px solid;
-        width: 567px;
+        width: 577px;
         height: 84px;
+
         tr{
             display: flex;
             justify-content: space-between;
             flex-direction: column;
-            border: 2px solid;
+            div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 0px;
+                gap: 12px;
+                
+                width: 294px;
+                height: 32px;
+                left: 271px;
+                top: 52px;
+
+                a{
+                    display: flex;
+                    align-items: center;
+                    padding: 8px;
+                    width: 32px;
+                    height: 32px;
+                    
+                    border-radius: 1rem;
+                    color: ${(props) => props.theme['white']};
+                }
+                .Cart{
+                    background-color: ${(props) => props.theme['yellow-dark']};
+                }
+                .Timer{
+                    background-color: ${(props) => props.theme['yellow']};
+                }
+                .Package{
+                    background-color: ${(props) => props.theme['base-text']};
+                }
+                .Coffee{
+                    background-color: ${(props) => props.theme['purple']};
+                }
+                
+                p{
+                    font-family: 'Roboto';
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 130%;
+
+                    color: ${(props) => props.theme['base-text']}
+                }
+            }
         }
     }
 `

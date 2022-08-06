@@ -14,14 +14,18 @@ export function Intro() {
                     <tr>
                         <th>
                             <div>
-                                <ShoppingCart size={20} weight="fill"/>
+                                <a className='Cart'>
+                                    <ShoppingCart size={20} weight="fill"/>
+                                </a>
                                 <p>Compra simples e segura</p>
                             </div>
                         </th>
                             
                         <th>
                             <div>
-                                <Timer size={20} weight="fill"/>
+                                <a className='Timer'>
+                                    <Timer size={20} weight="fill"/>
+                                </a>
                                 <p>Entrega rápida e rastreada</p>
                             </div>
                         </th>
@@ -29,14 +33,18 @@ export function Intro() {
                     <tr>
                         <th>
                             <div>
-                                <Package size={20} weight="fill"/>
+                                <a className='Package'>
+                                    <Package size={20} weight="fill"/>
+                                </a>
                                 <p>Embalagem mantém o café intacto</p>
                             </div>
                         </th>
 
                         <th>
                             <div>
-                                <Coffee size={20} weight="fill"/>
+                                <a className='Coffee'>
+                                    <Coffee size={20} weight="fill"/>
+                                </a>
                                 <p>O café chega fresquinho até você</p>
                             </div>
                         </th>
