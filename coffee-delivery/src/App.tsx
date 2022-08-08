@@ -5,6 +5,7 @@ import { Layout } from './styles/styles';
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from './styles/themes/default';
 import { Intro } from './Intro';
+import { CoffeeList } from './CoffeeList'
 
 export function App() {
 
@@ -13,6 +14,7 @@ export function App() {
       <Layout>
         <Header />
         <Intro />
+        <CoffeeList/>
         <GlobalStyle />
       </Layout>
     </ThemeProvider>
