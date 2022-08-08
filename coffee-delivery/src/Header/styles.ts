@@ -11,6 +11,8 @@ export const SideRight = styled.div`
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    font-family: 'Roboto';
+    font-size: 14px;
 
     div {
         color: ${(props) => props.theme['purple']};
