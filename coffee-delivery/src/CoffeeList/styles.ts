@@ -33,7 +33,7 @@ export const List = styled.div`
     margin-top: 2rem;
 `
 
-export const CoffeeCard = styled.div`
+export const CoffeeCards = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,15 +111,21 @@ export const Buy = styled.div`
         font-family: 'Roboto';
         color: ${(props) => props.theme['base-title']};
 
-        p{
+        .value{
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            padding: 0;
+
             font-size: 14px;
+            font-family: 'Baloo 2';
+            color: ${(props) => props.theme['base-label']};
         }
-        h2{
+        .value2{
             font-size: 30px;
             font-family: 'Baloo 2';
+            color: ${(props) => props.theme['base-subtitle']};
+            margin: 0;
         }
         div{
             display: flex;

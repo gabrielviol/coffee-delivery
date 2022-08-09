@@ -11,44 +11,48 @@ export function Intro() {
                     <p>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
                 </section>
                 <table>
-                    <tr>
-                        <th>
-                            <div>
-                                <a className='Cart'>
-                                    <ShoppingCart size={20} weight="fill"/>
-                                </a>
-                                <p>Compra simples e segura</p>
-                            </div>
-                        </th>
-                            
-                        <th>
-                            <div>
-                                <a className='Timer'>
-                                    <Timer size={20} weight="fill"/>
-                                </a>
-                                <p>Entrega rápida e rastreada</p>
-                            </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>
-                            <div>
-                                <a className='Package'>
-                                    <Package size={20} weight="fill"/>
-                                </a>
-                                <p>Embalagem mantém o café intacto</p>
-                            </div>
-                        </th>
+                    <tbody>
+                            <tr>
+                                <th>
+                                    <div>
+                                        <a className='Cart'>
+                                            <ShoppingCart size={20} weight="fill"/>
+                                        </a>
+                                        <p>Compra simples e segura</p>
+                                    </div>
+                                </th>
+                                    
+                                <th>
+                                    <div>
+                                        <a className='Timer'>
+                                            <Timer size={20} weight="fill"/>
+                                        </a>
+                                        <p>Entrega rápida e rastreada</p>
+                                    </div>
+                                </th>
+                            </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <th>
+                                <div>
+                                    <a className='Package'>
+                                        <Package size={20} weight="fill"/>
+                                    </a>
+                                    <p>Embalagem mantém o café intacto</p>
+                                </div>
+                            </th>
 
-                        <th>
-                            <div>
-                                <a className='Coffee'>
-                                    <Coffee size={20} weight="fill"/>
-                                </a>
-                                <p>O café chega fresquinho até você</p>
-                            </div>
-                        </th>
-                    </tr>
+                            <th>
+                                <div>
+                                    <a className='Coffee'>
+                                        <Coffee size={20} weight="fill"/>
+                                    </a>
+                                    <p>O café chega fresquinho até você</p>
+                                </div>
+                            </th>
+                        </tr>
+                    </tbody>
                 </table>
             </ContainerIntro>
             <img src={coffee} alt="Imagem Copo Café" />
