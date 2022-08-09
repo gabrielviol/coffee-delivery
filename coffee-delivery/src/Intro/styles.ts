@@ -73,53 +73,55 @@ export const ContainerIntro = styled.div`
         display: flex;
         width: 577px;
         height: 84px;
-
-        tr{
+        tbody{
             display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-            div {
+            tr{
                 display: flex;
-                flex-direction: row;
-                align-items: center;
-                padding: 0px;
-                gap: 12px;
-                
-                width: 294px;
-                height: 32px;
-                left: 271px;
-                top: 52px;
-
-                a{
+                justify-content: space-between;
+                flex-direction: column;
+                div {
                     display: flex;
+                    flex-direction: row;
                     align-items: center;
-                    padding: 8px;
-                    width: 32px;
-                    height: 32px;
+                    padding: 0px;
+                    gap: 12px;
                     
-                    border-radius: 1rem;
-                    color: ${(props) => props.theme['white']};
-                }
-                .Cart{
-                    background-color: ${(props) => props.theme['yellow-dark']};
-                }
-                .Timer{
-                    background-color: ${(props) => props.theme['yellow']};
-                }
-                .Package{
-                    background-color: ${(props) => props.theme['base-text']};
-                }
-                .Coffee{
-                    background-color: ${(props) => props.theme['purple']};
-                }
-                
-                p{
-                    font-family: 'Roboto';
-                    font-weight: 400;
-                    font-size: 16px;
-                    line-height: 130%;
+                    width: 294px;
+                    height: 32px;
+                    left: 271px;
+                    top: 52px;
 
-                    color: ${(props) => props.theme['base-text']}
+                    a{
+                        display: flex;
+                        align-items: center;
+                        padding: 8px;
+                        width: 32px;
+                        height: 32px;
+                        
+                        border-radius: 1rem;
+                        color: ${(props) => props.theme['white']};
+                    }
+                    .Cart{
+                        background-color: ${(props) => props.theme['yellow-dark']};
+                    }
+                    .Timer{
+                        background-color: ${(props) => props.theme['yellow']};
+                    }
+                    .Package{
+                        background-color: ${(props) => props.theme['base-text']};
+                    }
+                    .Coffee{
+                        background-color: ${(props) => props.theme['purple']};
+                    }
+                    
+                    p{
+                        font-family: 'Roboto';
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 130%;
+
+                        color: ${(props) => props.theme['base-text']}
+                    }
                 }
             }
         }
