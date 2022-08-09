@@ -2,7 +2,6 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-border: 1px solid black;
 margin-top: 6rem;
 
     
@@ -24,7 +23,6 @@ export const ContainerHeader = styled.div`
 `
 
 export const List = styled.div`
-    border: 1px solid;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -41,12 +39,9 @@ export const CoffeeCards = styled.div`
     width: 256px;
     height: 310px;
 
-    border: 1px solid green;
-
     img {
         width: 120px;
         height: 120px;
-        border: 1px solid black;
     }
 
     h2 {
@@ -63,7 +58,7 @@ export const CoffeeCards = styled.div`
         color: ${(props) => props.theme['base-subtitle']};
     }
     p {
-        margin: 0 10px;
+        margin: 0 15px;
         margin-top: 5px;
         font-family: 'Roboto';
         font-weight: 400;
@@ -93,7 +88,6 @@ export const CoffeeCards = styled.div`
         text-transform: uppercase;
 
         color: ${(props) => props.theme['yellow-dark']};
-        border: 1px solid red;
         }
 `
 
@@ -111,41 +105,65 @@ export const Buy = styled.div`
         font-family: 'Roboto';
         color: ${(props) => props.theme['base-title']};
 
-        .value{
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0;
-
-            font-size: 14px;
-            font-family: 'Baloo 2';
-            color: ${(props) => props.theme['base-label']};
-        }
-        .value2{
-            font-size: 30px;
-            font-family: 'Baloo 2';
-            color: ${(props) => props.theme['base-subtitle']};
-            margin: 0;
-        }
-        div{
-            display: flex;
-            align-items: center;
-            color: ${(props) => props.theme['purple-dark']};
-            gap: 2px;
-
-        div, div {
-            color: ${(props) => props.theme['white']};
-        }
-            p{  
-                font-family: 'Roboto';
-                font-size: 20px ;
-                color: black;
+            .BtMenos{
+                cursor: pointer;
+                transition-duration: .2s;
+                color: ${(props) => props.theme['purple']};
             }
-            .cart{
-                background-color: ${(props) => props.theme['purple-dark']};
-                padding: 8px;
-                border-radius: 6px;
+            .BtMenos:hover{
+                color: ${(props) => props.theme['purple-dark']};
+            }
+
+
+            .BtMais{
+                cursor: pointer;
+                transition-duration: .2s;
+                color: ${(props) => props.theme['purple']};
+            }
+            .BtMais:hover{
+                color: ${(props) => props.theme['purple-dark']};
+            }
+
+            .value{
+                display: flex;
+                align-items: center;
                 gap: 8px;
+                padding: 0;
+
+                font-size: 14px;
+                font-family: 'Baloo 2';
+                color: ${(props) => props.theme['base-label']};
             }
-        }
+            .value2{
+                font-size: 30px;
+                font-family: 'Baloo 2';
+                color: ${(props) => props.theme['base-subtitle']};
+                margin: 0;
+            }
+            div{
+                display: flex;
+                align-items: center;
+                color: ${(props) => props.theme['purple-dark']};
+                gap: 2px;
+
+                div, div {
+                    color: ${(props) => props.theme['white']};
+                }
+                    p{  
+                        font-family: 'Roboto';
+                        font-size: 20px ;
+                        color: black;
+                    }
+                    .cart{
+                        background-color: ${(props) => props.theme['purple-dark']};
+                        padding: 8px;
+                        border-radius: 6px;
+                        gap: 8px;
+                        cursor: pointer;
+                        transition-duration: .2s;
+                    }
+                    .cart:hover{
+                    background-color: ${(props) => props.theme['purple']};
+                    }
+            }
 `
