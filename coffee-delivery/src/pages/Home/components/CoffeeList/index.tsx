@@ -17,7 +17,7 @@ import coffeeCubano from '../assets/coffeeCubano.svg'
 import coffeeHavaiano from '../assets/coffeeHavaiano.svg'
 import coffeeArabe from '../assets/coffeeArabe.svg'
 import coffeeIrlandes from '../assets/coffeeIrlandes.svg'
-import { UseCart } from '../hooks/UseCart';
+import { UseCart } from '../../../../hooks/UseCart';
 
 const data = [
   {
@@ -155,13 +155,13 @@ export function CoffeeList() {
         ...product
       }))
 
-      setListCoffees(data);
+      // setListCoffees(data);
     }
 
     loadProducts();
   }, []);
 
-  console.log(addCofee)
+  // console.log(addCofee)
 
   function handleAddCoffee(id: number) {
     addCoffee(id);
