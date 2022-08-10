@@ -1,9 +1,9 @@
-import { Counter, HeaderContainer, SideRight } from './styles'
+import { NavLink } from 'react-router-dom'
 import { ShoppingCart, MapPin } from 'phosphor-react'
 
-import { Link, NavLink } from 'react-router-dom'
-
 import logoCoffee  from '../../assets/logoCoffee.svg'
+
+import { Counter, HeaderContainer, Link, SideRight } from './styles'
 
 export function Header() {
     return(
@@ -21,7 +21,6 @@ export function Header() {
                     <Counter>3</Counter>
                     <ShoppingCart size={20} weight='fill'/>
                 </Link>
-
             </SideRight>
         </HeaderContainer>
     )
