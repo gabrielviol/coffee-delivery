@@ -3,7 +3,17 @@ import { UseCart } from "../../../../hooks/UseCart";
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import { CoffeeType } from "../../../../@types/coffees";
 
-import { Badges, CoffeeItemActions, CoffeeItemContainer, Description, Title } from "./styles";
+import { 
+    Badges, 
+    ButtonDecrement, 
+    ButtonIncrement, 
+    CartButton, 
+    CoffeeItemActions, 
+    CoffeeItemContainer, 
+    Description, 
+    InputNumber, 
+    Title 
+  } from "./styles";
 
 interface CoffeeItemProps {
   coffee: CoffeeType
@@ -12,6 +22,26 @@ interface CoffeeItemProps {
 export function CoffeeItem({ coffee }: CoffeeItemProps) {
   
   const cart = useContext(UseCart);
+  const [amount, setAmount] = useState(1);
+
+  const handleIncrementAmount = () => {
+    setAmount(state => state + 1);
+  }
+
+  const handleDecrementAmount = () => {
+    if(amount > 1) setAmount(state => state - 1);
+    if(amount <= 0) console.error('Seu carrinho está vazio');
+    
+  }
+
+  const handleAddToCart = () => {
+    cart.addItem({
+      id: coffee.id,
+      amount
+    });
+  }
+  
+
 
   return (
     <CoffeeItemContainer>
@@ -38,8 +68,30 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
             {coffee.price.toFixed(2)}
           </strong>
         </span>
-      </CoffeeItemActions>
 
+        <InputNumber>
+          <ButtonDecrement type="button" onClick={handleDecrementAmount}>
+            <Minus />
+          </ButtonDecrement>
+
+          <input 
+            type="number"
+            min="1"
+            max="50"
+            step="1"
+            value={amount}
+            onChange={() => {}}
+          />
+
+          <ButtonIncrement type="button" onClick={handleIncrementAmount}>
+            <Plus />
+          </ButtonIncrement>
+        </InputNumber>
+
+        <CartButton type="button" onClick={handleAddToCart}>
+          <ShoppingCart weight="fill" />
+        </CartButton>
+      </CoffeeItemActions>
     </CoffeeItemContainer>
   )
 }

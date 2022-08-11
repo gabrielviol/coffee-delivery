@@ -1,6 +1,6 @@
 export interface CartItem {
     id: number,
-    quantity: number
+    amount: number
   }
   
   export interface Cart {
