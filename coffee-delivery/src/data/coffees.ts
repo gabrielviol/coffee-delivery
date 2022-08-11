@@ -5,7 +5,7 @@ export const coffees = [
       label: 'Tradicional',
       title: 'Expresso Tradicional',
       description: 'O tradicional café feito com agua quente e grãos moídos',
-      price: 9.90
+      price:9.90
     },
     {
       id: 2,
