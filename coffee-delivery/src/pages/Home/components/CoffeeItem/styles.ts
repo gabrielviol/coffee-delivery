@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CoffeeItemContainer = styled.div`    
+export const CoffeeItemContainer = styled.div`
     width: 14rem;
     flex-direction: column;
     text-align: center;

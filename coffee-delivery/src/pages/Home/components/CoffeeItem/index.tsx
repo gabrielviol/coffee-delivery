@@ -29,9 +29,7 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
   }
 
   const handleDecrementAmount = () => {
-    if(amount > 1) setAmount(state => state - 1);
-    if(amount <= 0) console.error('Seu carrinho está vazio');
-    
+    if(amount > 1) setAmount(state => state - 1);    
   }
 
   const handleAddToCart = () => {
@@ -45,7 +43,7 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
 
   return (
     <CoffeeItemContainer>
-      <img src={`./images/coffees/${coffee.image}.svg`} alt={coffee.title} />
+      <img src={`./images/${coffee.image}.svg`} alt={coffee.title} />
 
       <Badges>
         <span>
