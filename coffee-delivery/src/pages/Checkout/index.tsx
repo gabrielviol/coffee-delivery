@@ -1,6 +1,6 @@
-// import Address from "./components/Address";
-// import Payment from "./components/Payment";
-// import Summary from "./components/Summary";
+import { Address } from "./components/Address";
+import { Payment } from "./components/Payment";
+import { Summary } from "./components/Summary";
 
 import { 
   CheckoutContainer,
@@ -12,12 +12,12 @@ export const Checkout = () => {
   return (
     <CheckoutContainer>
       <LeftContainer>
-        {/* <Address />
-        <Payment /> */}
+        <Address />
+        <Payment />
       </LeftContainer>
 
       <RightContainer>
-        {/* <Summary /> */}
+        <Summary />
       </RightContainer>
     </CheckoutContainer>
   );
