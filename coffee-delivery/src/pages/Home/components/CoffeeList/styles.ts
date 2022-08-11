@@ -7,7 +7,7 @@ export const ContainerHeader = styled.section`
     h2 {
     font-family: 'Baloo 2', cursive;
     font-size: 1.875rem;
-    color: ${props => props.theme.grey_900};
+    color: ${(props) => props.theme['base-title']};  
     margin-bottom: 2rem;
     }
 
@@ -18,7 +18,7 @@ export const ContainerHeader = styled.section`
 `
 
 export const Loading = styled.h1`
-  color: ${props => props.theme.grey_600};
+  color: ${(props) => props.theme['base-label']};   
   font-size: 1rem;
 `
 
