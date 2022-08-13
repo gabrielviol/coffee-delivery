@@ -39,6 +39,7 @@ export const Badges = styled.div`
 export const Title = styled.h1`
   font-size: 1rem;
   margin-bottom: 0.5rem;
+  color: ${(props) => props.theme['base-title']};
 `
 
 export const Description = styled.p`
@@ -51,12 +52,14 @@ export const Description = styled.p`
 export const CoffeeItemActions = styled.div`
   margin: auto;
   gap: 0.5rem;
+  color: ${(props) => props.theme['base-subtitle']};
   
   span {
     font-size: 0.725rem;
   }
   strong {
     font-family: 'Baloo 2', cursive;
+      
     font-weight: 800;
     font-size: 1.25rem;
     margin: 0rem 1rem 0rem 0.25rem;
@@ -69,7 +72,6 @@ export const InputNumber = styled.div`
       text-align: center;
       outline: none;
       background-color: ${(props) => props.theme['base-button']};
-      color: ${(props) => props.theme['purple-dark']};
       pointer-events:none;
       &::-webkit-inner-spin-button,
       &::-webkit-outer-spin-button {
@@ -78,18 +80,16 @@ export const InputNumber = styled.div`
     }
 `
 export const BaseInputNumberButtons = styled.button`
-  padding: 6px;
   background-color: ${(props) => props.theme['base-button']};
   outline: none;
   border: none;
   cursor: pointer;
   svg {
-    color: ${(props) => props.theme['base-subtitle']};
-    font-size: 0.65rem;
+    color: ${(props) => props.theme['purple-dark']};
   }
   &:hover {
     svg {
-      color: ${(props) => props.theme['purple-dark']};
+      color: ${(props) => props.theme['purple']};
     }
   }
 `

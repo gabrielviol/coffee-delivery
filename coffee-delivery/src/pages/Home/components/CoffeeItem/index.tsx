@@ -69,7 +69,7 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
 
         <InputNumber>
           <ButtonDecrement type="button" onClick={handleDecrementAmount}>
-            <Minus />
+            <Minus size={15}/>
           </ButtonDecrement>
 
           <input 
@@ -82,7 +82,7 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
           />
 
           <ButtonIncrement type="button" onClick={handleIncrementAmount}>
-            <Plus />
+            <Plus size={15} />
           </ButtonIncrement>
         </InputNumber>
 
