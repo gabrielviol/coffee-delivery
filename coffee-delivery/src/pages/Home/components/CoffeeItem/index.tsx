@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { UseCart } from "../../../../hooks/UseCart";
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
-import { CoffeeType } from "../../../../@types/coffees";
+import { CoffeeType } from "../../../../coffees";
 
 import { 
     Badges, 
@@ -24,15 +24,15 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
   const cart = useContext(UseCart);
   const [amount, setAmount] = useState(1);
 
-  const handleIncrementAmount = () => {
+  function handleIncrementAmount(){
     setAmount(state => state + 1);
   }
 
-  const handleDecrementAmount = () => {
+  function handleDecrementAmount(){
     if(amount > 1) setAmount(state => state - 1);    
   }
 
-  const handleAddToCart = () => {
+  function handleAddToCart(){
     cart.addItem({
       id: coffee.id,
       amount
