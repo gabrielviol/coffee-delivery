@@ -1,5 +1,5 @@
 import { coffees } from "../../../../data/coffees";
-import { CoffeeType } from "../../../../@types/coffees";
+import { CoffeeType } from "../../../../coffees";
 import { CoffeeItem } from '../CoffeeItem';
 
 import { ContainerHeader, Loading } from './styles'
