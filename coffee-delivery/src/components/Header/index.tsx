@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+
 import { ShoppingCart, MapPin } from 'phosphor-react'
 
 import logoCoffee  from '../../assets/logoCoffee.svg'
@@ -6,6 +7,7 @@ import logoCoffee  from '../../assets/logoCoffee.svg'
 import { Counter, HeaderContainer, Link, SideRight } from './styles'
 
 export function Header() {
+
     return(
         <HeaderContainer>
             <NavLink to='/'>
