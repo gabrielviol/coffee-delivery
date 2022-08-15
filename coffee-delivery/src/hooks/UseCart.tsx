@@ -11,7 +11,7 @@ export interface UpdateCartItem {
 }
 
 export interface Cart {
-  items: CoffeeType[],
+  items: UpdateCartItem[],
   addItem: (items: UpdateCartItem) => void,
   removeItem: (items: UpdateCartItem) => void
 }
@@ -31,22 +31,27 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
     if(coffeeExists){
       coffeeExists.amount = amount;
     } else {
-      const coffee = item.id
-      const newCoffee = {
-        coffee,
-        amount: 1
-      }
-      updatedCart.push(newCoffee);
+      updatedCart.push(item);
     }
     setItems(updatedCart)
-    console.log(coffeeExists)
+    console.log(updatedCart)
     
 
   }
 
   
   const removeItem = (item: UpdateCartItem) => {
-    console.log("Remove");
+    const updatedCart = [...items];
+    const coffeeIndex = updatedCart.findIndex(items => items.id === item.id)
+
+    if(coffeeIndex >= 0){
+      updatedCart.splice(coffeeIndex, 1)
+      setItems(updatedCart)
+      console.log(updatedCart)
+    }else{
+      throw Error();
+    }
+
   }
 
   return (
