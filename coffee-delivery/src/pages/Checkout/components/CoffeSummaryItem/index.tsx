@@ -20,12 +20,17 @@ export function CoffeeSummaryItem() {
 
   const { items } = useContext(useCart);
 
+  const itemFormatted = items.map(product => ({
+    ...product,
+    priceFormatted: formatPrice(product.price),
+    subTotal: formatPrice(product.price * product.amount)
+  }))
 
   return (
     <>
-      {items.map(item => (
-        <CoffeeItemContainer>
-        <Icon key={item.id}>
+      {itemFormatted.map(item => (
+        <CoffeeItemContainer key={item.id}>
+        <Icon >
         <img src={`./images/${item.image}.svg`} alt="Coffee" />
       </Icon>
       <Summary>
@@ -42,7 +47,7 @@ export function CoffeeSummaryItem() {
               min="1"
               max="100"
               step="1"
-              value="1"
+              value={item.amount}
               onChange={() => { }}
             />
 
@@ -58,7 +63,7 @@ export function CoffeeSummaryItem() {
         </SummaryOptions>
       </Summary>
       <Price>
-        {item.price}
+        {item.subTotal}
       </Price>
       </CoffeeItemContainer>
       ))}
