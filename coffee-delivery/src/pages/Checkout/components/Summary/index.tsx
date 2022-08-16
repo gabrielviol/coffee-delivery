@@ -1,51 +1,59 @@
 import { useContext } from "react";
 import { UpdateCartItem, useCart } from "../../../../hooks/useCart";
+import { formatPrice } from "../../../../util/format";
 
 import { CoffeeItemProps } from "../../../Home/components/CoffeeItem";
 import { CoffeeSummaryItem } from "../CoffeSummaryItem";
 
 import {
-    SummaryContainer,
-    SummaryContent,
-    SummaryTotal
-  } from "./styles";
-  
-  
-  export function Summary({ coffee } : CoffeeItemProps){
+  SummaryContainer,
+  SummaryContent,
+  SummaryTotal
+} from "./styles";
 
 
-    return (
-      <SummaryContainer>
-        <h1>Cafés selecionados</h1>
+export function Summary() {
   
-       <SummaryContent>
-        
-          <CoffeeSummaryItem  />
-        
-  
-          <SummaryTotal>
+  const { items } = useContext(useCart);
+
+  const totalItens =
+      items.reduce((sumTotal, product) => {
+        return sumTotal + product.price * product.amount
+      }, 0)
+
+    const frete = 3.5
+
+    const total = frete + totalItens
+
+
+  return (
+    <SummaryContainer>
+      <h1>Cafés selecionados</h1>
+
+      <SummaryContent>
+
+        <CoffeeSummaryItem />
+
+        <SummaryTotal >
             <div>
               <p>Total de Itens</p>
-              <span>R$ 29,70</span>
+              <span>{formatPrice(totalItens)}</span>
             </div>
-  
+
             <div>
               <p>Entrega</p>
-              <span>R$ 3,50</span>
+              <span>{formatPrice(frete)}</span>
             </div>
-  
+
             <div>
               <h2>Total</h2>
-              <h2>R$ 33,20</h2>
+              <h2>{formatPrice(total)}</h2>
             </div>
-  
+
             <button type="button">Confirmar Pedido</button>
+
           </SummaryTotal>
-  
-       </SummaryContent>
-  
-       
-      </SummaryContainer>
-    );
-  }
-  
+      </SummaryContent>
+    </SummaryContainer>
+  );
+}
