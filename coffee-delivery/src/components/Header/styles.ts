@@ -23,7 +23,6 @@ export const SideRight = styled.div`
       gap: 0.25rem;
       background: ${(props) => props.theme['purple-light']};
       color: ${(props) => props.theme['purple-dark']};
-      border: 1px solid ${(props) => props.theme['purple']};
       cursor: default;
     }
 

@@ -1,3 +1,7 @@
+import { useContext } from "react";
+import { UpdateCartItem, useCart } from "../../../../hooks/useCart";
+
+import { CoffeeItemProps } from "../../../Home/components/CoffeeItem";
 import { CoffeeSummaryItem } from "../CoffeSummaryItem";
 
 import {
@@ -7,15 +11,17 @@ import {
   } from "./styles";
   
   
-  export function Summary(){
+  export function Summary({ coffee } : CoffeeItemProps){
+
+
     return (
       <SummaryContainer>
         <h1>Cafés selecionados</h1>
   
        <SummaryContent>
-          <CoffeeSummaryItem />
-          <CoffeeSummaryItem />
-          <CoffeeSummaryItem />
+        
+          <CoffeeSummaryItem  />
+        
   
           <SummaryTotal>
             <div>
