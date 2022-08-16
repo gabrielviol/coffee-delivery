@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { UseCart } from "../../../../hooks/UseCart";
+import { useCart } from "../../../../hooks/useCart";
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import { CoffeeType } from "../../../../coffees";
 
@@ -21,7 +21,7 @@ interface CoffeeItemProps {
 
 export function CoffeeItem({ coffee }: CoffeeItemProps) {
   
-  const cart = useContext(UseCart);
+  const cart = useContext(useCart);
   const [amount, setAmount] = useState(1);
 
   function handleIncrementAmount(){
@@ -37,6 +37,7 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
       id: coffee.id,
       amount
     });
+    setAmount(1)
   }
   
 
