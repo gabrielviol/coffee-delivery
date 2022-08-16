@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import { Router } from './Router'
-import { CartContextProvider } from './hooks/UseCart';
+import { CartContextProvider } from './hooks/useCart';
 
 
 import { ThemeProvider } from 'styled-components'

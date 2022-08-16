@@ -16,7 +16,7 @@ export interface Cart {
   removeItem: (items: UpdateCartItem) => void
 }
 
-export const UseCart = createContext<Cart>({} as Cart);
+export const useCart = createContext<Cart>({} as Cart);
 
 export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   const [items, setItems] = useState<UpdateCartItem[]>([]);
@@ -55,7 +55,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   }
 
   return (
-    <UseCart.Provider
+    <useCart.Provider
       value={{
         items,
         addItem,
@@ -63,6 +63,6 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
       }}
     >
       {children}
-    </UseCart.Provider>
+    </useCart.Provider>
   )
 }
