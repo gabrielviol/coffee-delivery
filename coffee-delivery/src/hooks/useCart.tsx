@@ -5,8 +5,7 @@ interface CartContextProviderProps {
   children: ReactNode;
 }
 
-export interface UpdateCartItem {
-  id: number,
+export interface UpdateCartItem extends CoffeeType{
   amount: number
 }
 

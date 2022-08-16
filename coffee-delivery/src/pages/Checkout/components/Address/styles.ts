@@ -6,7 +6,7 @@ export const AddressContainer = styled.div`
 `
 export const AddressContent = styled.div`
   font-family: 'Roboto', sans-serif;    
-  background-color: ${props => props.theme.grey_200};
+  background-color: ${(props) => props.theme['base-card']}; 
   display: flex;
   flex-direction: column;
   border-radius: 6px;
@@ -15,12 +15,12 @@ export const AddressContent = styled.div`
   padding: 2.5rem;
   box-sizing: border-box;
   svg {
-    color: ${props => props.theme.yellow_700};
+    color: ${(props) => props.theme['yellow-dark']}; 
     margin-right: 1rem;
   }
   span {
     font-size: 0.875rem;
-    color: ${props => props.theme.grey_700};
+    color: ${(props) => props.theme['base-text']}; 
     line-height: 1.5rem; 
   }
 `
@@ -34,13 +34,13 @@ export const AddressForm = styled.form`
   input {
     height: 3rem;
     padding: 0 1rem;
-    background-color: ${props => props.theme.grey_300};
-    border: 1px solid ${props => props.theme.grey_400};
+    background-color: ${(props) => props.theme['base-input']}; 
+    border: 1px solid ${(props) => props.theme['base-button']}; 
     border-radius: 6px;
     outline: none;
     &:focus {
       transition: border 0.3s;
-      border: 1px solid ${props => props.theme.yellow_500};
+      border: 1px solid ${(props) => props.theme['yellow']}; 
     }
   }
 `
@@ -59,7 +59,7 @@ export const AddressFormGroup = styled.div`
     right: 0;
     margin-right: 1rem;
     font-size: 0.75rem;
-    color: ${props => props.theme.grey_600};
+    color: ${(props) => props.theme['base-label']}; 
     font-style: italic;
   }
 `

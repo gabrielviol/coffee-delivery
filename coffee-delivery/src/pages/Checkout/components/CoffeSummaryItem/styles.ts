@@ -5,7 +5,7 @@ export const CoffeeItemContainer = styled.div`
   display: flex;
   flex: 1;
   padding: 1rem 0;
-  border-bottom: 1px solid ${props => props.theme.grey_500};
+  border-bottom: 1px solid ${(props) => props.theme['base-hover']};  
 `
 
 export const Icon = styled.div`
@@ -25,7 +25,7 @@ export const Summary = styled.div`
   gap:  0.5rem;
   padding: 0 1.5rem;
   font-size: 0.875rem;
-  color: ${props => props.theme.grey_800};
+  color: ${(props) => props.theme['base-subtitle']};  
  `;
 
 export const Price = styled.div`
@@ -46,8 +46,8 @@ export const InputNumber = styled.div`
     border: none;
     text-align: center;
     outline: none;
-    background-color: ${props => props.theme.grey_400};
-    color: ${props => props.theme.purple_700};
+    background-color: ${(props) => props.theme['base-button']};   
+    color: ${(props) => props.theme['purple-dark']};   
     pointer-events:none;
     height: 100%;
     &::-webkit-inner-spin-button,
@@ -59,17 +59,17 @@ export const InputNumber = styled.div`
 
 export const BaseInputNumberButtons = styled.button`
   padding: 6px;
-  background-color: ${props => props.theme.grey_400};
+  background-color: ${(props) => props.theme['base-button']};   
   outline: none;
   border: none;
   cursor: pointer;
   svg {
-    color: ${props => props.theme.grey_800};
+    color: ${(props) => props.theme['base-subtitle']}; 
     font-size: 0.65rem;
   }
   &:hover {
     svg {
-      color: ${props => props.theme.purple_700};
+      color: ${(props) => props.theme['purple-dark']};   
     }
   }
 `
@@ -85,7 +85,7 @@ export const ButtonIncrease = styled(BaseInputNumberButtons)`
 `
 export const RemoveButton = styled.button`
   padding: 0 0.875rem;
-  background-color: ${props => props.theme.grey_400};
+  background-color: ${(props) => props.theme['base-button']};  
   outline: none;
   border: none;
   display: flex;
@@ -95,9 +95,9 @@ export const RemoveButton = styled.button`
   border-radius: 6px;
   text-transform: uppercase;
   font-size: 0.675rem;
-  color: ${props => props.theme.grey_800};
+  color: ${(props) => props.theme['base-subtitle']}; 
   svg {
     font-size: 1rem;
-    color: ${props => props.theme.purple_500};
+    color: ${(props) => props.theme['purple']};  
   }
 `

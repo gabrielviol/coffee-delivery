@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useCart } from "../../../../hooks/useCart";
+import { UpdateCartItem, useCart } from "../../../../hooks/useCart";
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import { CoffeeType } from "../../../../coffees";
 
@@ -15,11 +15,11 @@ import {
     Title 
   } from "./styles";
 
-interface CoffeeItemProps {
+export interface CoffeeItemProps {
   coffee: CoffeeType
 }
 
-export function CoffeeItem({ coffee }: CoffeeItemProps) {
+export function CoffeeItem({ coffee } : CoffeeItemProps) {
   
   const cart = useContext(useCart);
   const [amount, setAmount] = useState(1);
@@ -35,6 +35,11 @@ export function CoffeeItem({ coffee }: CoffeeItemProps) {
   function handleAddToCart(){
     cart.addItem({
       id: coffee.id,
+      description: coffee.description,
+      image: coffee.image,
+      label: coffee.label,
+      price: coffee.price,
+      title: coffee.title,
       amount
     });
     setAmount(1)

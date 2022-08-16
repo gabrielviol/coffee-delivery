@@ -5,8 +5,13 @@ import { ShoppingCart, MapPin } from 'phosphor-react'
 import logoCoffee  from '../../assets/logoCoffee.svg'
 
 import { Counter, HeaderContainer, Link, SideRight } from './styles'
+import { useCart } from '../../hooks/useCart';
+import { useContext } from 'react';
 
 export function Header() {
+    
+    const { items } = useContext(useCart);
+    const cartSize = items.length
 
     return(
         <HeaderContainer>
@@ -20,7 +25,7 @@ export function Header() {
                     <span>Valinhos, SP</span>
                 </div>
                 <Link to="/checkout">
-                    <Counter>3</Counter>
+                    <Counter>{cartSize}</Counter>
                     <ShoppingCart size={20} weight='fill'/>
                 </Link>
             </SideRight>

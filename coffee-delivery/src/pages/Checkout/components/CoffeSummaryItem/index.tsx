@@ -1,4 +1,8 @@
-import { Minus, Plus , Trash} from "phosphor-react";
+import { Minus, Plus, Trash } from "phosphor-react";
+import { useContext } from "react";
+import { formatPrice } from '../../../../util/format';
+import { useCart } from "../../../../hooks/useCart";
+import { CoffeeItemProps } from "../../../Home/components/CoffeeItem";
 
 import {
   CoffeeItemContainer,
@@ -13,13 +17,19 @@ import {
 } from "./styles";
 
 export function CoffeeSummaryItem() {
+
+  const { items } = useContext(useCart);
+
+
   return (
-    <CoffeeItemContainer>
-      <Icon>
-        <img src={`./images/coffees/expresso-tradicional.svg`} alt="Coffee" />
+    <>
+      {items.map(item => (
+        <CoffeeItemContainer>
+        <Icon key={item.id}>
+        <img src={`./images/${item.image}.svg`} alt="Coffee" />
       </Icon>
       <Summary>
-        <p>Expresso Tradicional</p>
+        <p>{item.title}</p>
         <SummaryOptions>
 
           <InputNumber>
@@ -48,8 +58,10 @@ export function CoffeeSummaryItem() {
         </SummaryOptions>
       </Summary>
       <Price>
-        R$ 9,90
+        {item.price}
       </Price>
-    </CoffeeItemContainer>
+      </CoffeeItemContainer>
+      ))}
+    </>
   );
 }
