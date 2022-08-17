@@ -34,6 +34,10 @@ export function CoffeeSummaryItem() {
     updatedAmount({id: item.id, amount: item.amount + 1});
   }
 
+  function handleDecrementItem(item: UpdateCartItem){
+    updatedAmount({id: item.id, amount: item.amount - 1});
+  }
+
   return (
     <>
       {itemFormatted.map(item => (
@@ -46,7 +50,7 @@ export function CoffeeSummaryItem() {
         <SummaryOptions>
 
           <InputNumber>
-            <ButtonDecrement type="button">
+            <ButtonDecrement onClick={() => handleDecrementItem(item)} type="button">
               <Minus />
             </ButtonDecrement>
 
