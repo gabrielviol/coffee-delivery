@@ -74,12 +74,12 @@ export const BaseInputNumberButtons = styled.button`
   }
 `
 
-export const ButtonDecrease = styled(BaseInputNumberButtons)`
+export const ButtonDecrement = styled(BaseInputNumberButtons)`
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
 `
 
-export const ButtonIncrease = styled(BaseInputNumberButtons)`
+export const ButtonIncrement = styled(BaseInputNumberButtons)`
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
 `

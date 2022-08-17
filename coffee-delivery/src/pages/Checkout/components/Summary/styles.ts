@@ -6,7 +6,7 @@ export const SummaryContainer = styled.div`
 `
 export const SummaryContent = styled.div`
   font-family: 'Roboto', sans-serif;
-  background-color: ${props => props.theme.grey_200};
+  background-color: ${(props) => props.theme['base-card']}; 
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
@@ -28,7 +28,7 @@ export const SummaryTotal = styled.div`
   }
   p, span {
     font-size: 0.875rem;
-    color: ${props => props.theme.grey_700};
+    color: ${(props) => props.theme['base-text']};  
   }
   h2 {
     margin-top: 0.5rem;
@@ -40,14 +40,14 @@ export const SummaryTotal = styled.div`
     border-radius: 6px;
     outline: none;
     border: none;
-    background-color: ${props => props.theme.yellow_500};
+    background-color: ${(props) => props.theme['yellow']}; 
     text-transform: uppercase;
-    color: ${props => props.theme.white};
+    color: ${(props) => props.theme['white']}; 
     font-weight: 700;
     cursor: pointer;
     &:hover {
       transition: background 0.3s;
-      background-color: ${props => props.theme.yellow_700};
+      background-color: ${(props) => props.theme['yellow-dark']}; 
     }
   }
 `
