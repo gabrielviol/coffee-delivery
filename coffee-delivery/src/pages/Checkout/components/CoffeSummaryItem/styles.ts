@@ -96,6 +96,7 @@ export const RemoveButton = styled.button`
   text-transform: uppercase;
   font-size: 0.675rem;
   color: ${(props) => props.theme['base-subtitle']}; 
+  cursor: pointer;
   svg {
     font-size: 1rem;
     color: ${(props) => props.theme['purple']};  

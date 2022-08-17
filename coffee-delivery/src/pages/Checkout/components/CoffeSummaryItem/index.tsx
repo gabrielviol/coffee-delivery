@@ -1,7 +1,7 @@
 import { Minus, Plus, Trash } from "phosphor-react";
 import { useContext } from "react";
 import { formatPrice } from '../../../../util/format';
-import { useCart } from "../../../../hooks/useCart";
+import { UpdateCartItem, useCart } from "../../../../hooks/useCart";
 import { CoffeeItemProps } from "../../../Home/components/CoffeeItem";
 
 import {
@@ -18,13 +18,17 @@ import {
 
 export function CoffeeSummaryItem() {
 
-  const { items } = useContext(useCart);
+  const { items, removeItem } = useContext(useCart);
 
   const itemFormatted = items.map(product => ({
     ...product,
     priceFormatted: formatPrice(product.price),
     subTotal: formatPrice(product.price * product.amount)
   }))
+
+  function handleRemoveItem(itemId: UpdateCartItem){
+    removeItem(itemId)
+  }
 
   return (
     <>
@@ -56,7 +60,7 @@ export function CoffeeSummaryItem() {
             </ButtonIncrease>
           </InputNumber>
 
-          <RemoveButton>
+          <RemoveButton onClick={() => handleRemoveItem(item)} >
             <Trash />
             Remover
           </RemoveButton>
