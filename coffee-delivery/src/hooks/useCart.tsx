@@ -25,7 +25,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
     const updatedCart = [...items];
     const coffeeExists = updatedCart.find(items => items.id === item.id)
     const currentAmount = coffeeExists ? coffeeExists.amount : 0;
-    const amount = currentAmount + 1;
+    const amount = currentAmount + item.amount;
 
     if (coffeeExists) {
       coffeeExists.amount = amount;
@@ -58,7 +58,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
     if (coffeeExists) {
       coffeeExists.amount = amount;
       setItems(updatedCart);
-      console.log(updatedCart);
+      console.log(updatedCart)
     }
   }
 
