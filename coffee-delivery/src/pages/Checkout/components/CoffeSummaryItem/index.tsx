@@ -1,5 +1,5 @@
 import { Minus, Plus, Trash } from "phosphor-react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { formatPrice } from '../../../../util/format';
 import { UpdateCartItem, useCart } from "../../../../hooks/useCart";
 import { CoffeeItemProps } from "../../../Home/components/CoffeeItem";
@@ -19,6 +19,7 @@ import {
 export function CoffeeSummaryItem() {
 
   const { items, removeItem, updatedAmount } = useContext(useCart);
+  const [amount, setAmount] = useState(1);
 
   const itemFormatted = items.map(product => ({
     ...product,
@@ -34,7 +35,7 @@ export function CoffeeSummaryItem() {
     updatedAmount({id: item.id, amount: item.amount + 1});
   }
 
-  function handleDecrementItem(item: UpdateCartItem){
+  function handleDecrementItem(item: UpdateCartItem){  
     updatedAmount({id: item.id, amount: item.amount - 1});
   }
 
@@ -57,7 +58,7 @@ export function CoffeeSummaryItem() {
             <input
               type="number"
               min="1"
-              max="100"
+              max="50"
               step="1"
               value={item.amount}
               onChange={() => { }}
