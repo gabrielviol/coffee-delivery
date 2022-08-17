@@ -11,14 +11,14 @@ import {
   Price,
   SummaryOptions,
   InputNumber,
-  ButtonDecrease,
-  ButtonIncrease,
-  RemoveButton
+  RemoveButton,
+  ButtonIncrement,
+  ButtonDecrement
 } from "./styles";
 
 export function CoffeeSummaryItem() {
 
-  const { items, removeItem } = useContext(useCart);
+  const { items, removeItem, updatedAmount } = useContext(useCart);
 
   const itemFormatted = items.map(product => ({
     ...product,
@@ -26,8 +26,12 @@ export function CoffeeSummaryItem() {
     subTotal: formatPrice(product.price * product.amount)
   }))
 
-  function handleRemoveItem(itemId: UpdateCartItem){
-    removeItem(itemId)
+  function handleRemoveItem(item: UpdateCartItem){
+    removeItem(item)
+  }
+
+  function handleIncrementItem(item: UpdateCartItem){
+    updatedAmount({id: item.id, amount: item.amount + 1});
   }
 
   return (
@@ -42,9 +46,9 @@ export function CoffeeSummaryItem() {
         <SummaryOptions>
 
           <InputNumber>
-            <ButtonDecrease type="button">
+            <ButtonDecrement type="button">
               <Minus />
-            </ButtonDecrease>
+            </ButtonDecrement>
 
             <input
               type="number"
@@ -55,9 +59,9 @@ export function CoffeeSummaryItem() {
               onChange={() => { }}
             />
 
-            <ButtonIncrease type="button">
+            <ButtonIncrement onClick={() => handleIncrementItem(item)} type="button">
               <Plus />
-            </ButtonIncrease>
+            </ButtonIncrement>
           </InputNumber>
 
           <RemoveButton onClick={() => handleRemoveItem(item)} >

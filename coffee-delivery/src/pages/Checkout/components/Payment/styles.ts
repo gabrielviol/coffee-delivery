@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PaymentContainer = styled.div`
-  background-color: ${props => props.theme.grey_200};
+  background-color: ${(props) => props.theme['base-card']};  
   display: flex;
   flex-direction: column;
   border-radius: 6px;
@@ -12,7 +12,7 @@ export const PaymentContainer = styled.div`
   font-size: 1rem;
   span {
     font-size: 0.875rem;
-    color: ${props => props.theme.grey_700};
+    color: ${(props) => props.theme['base-text']}; 
     line-height: 1.5rem;  
   }
 `
@@ -28,26 +28,26 @@ export const PaymentOptions = styled.div`
     gap: 0.5rem;
     height: 3rem;
     width: 100%;
-    color: ${props => props.theme.grey_700};
+    color: ${(props) => props.theme['base-text']}; 
     text-transform: uppercase;
     font-size: 0.775rem;
     border: 1px solid transparent;
-    background-color: ${props => props.theme.grey_400};
+    background-color: ${(props) => props.theme['base-button']}; 
     border-radius: 6px;
     cursor: pointer;
     min-width: 200px;
     &:hover {
       transition: all 0.3s;
-      background-color: ${props => props.theme.grey_500};
+      background-color: ${(props) => props.theme['base-hover']}; 
     }
     &:focus {
-      background-color: ${props => props.theme.purple_300};
-      border: 1px solid ${props => props.theme.purple_500};
-      color: ${props => props.theme.purple_500};
+      background-color: ${(props) => props.theme['purple-light']};  
+      border: 1px solid ${(props) => props.theme['purple']}; 
+      color: ${(props) => props.theme['purple']}; 
     }
   }
   svg {
     font-size: 1rem;
-    color: ${props => props.theme.purple_500};
+    color: ${(props) => props.theme['purple']};
   }
 `
