@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const SummaryContainer = styled.div`
@@ -34,20 +35,30 @@ export const SummaryTotal = styled.div`
     margin-top: 0.5rem;
     font-size: 1.25rem;
   }
-  button {
+  
+  
+`
+export const Link = styled(NavLink)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 2rem;
     height: 3rem;
     border-radius: 6px;
-    outline: none;
     border: none;
     background-color: ${(props) => props.theme['yellow']}; 
     text-transform: uppercase;
     color: ${(props) => props.theme['white']}; 
     font-weight: 700;
+    text-decoration: none;
     cursor: pointer;
     &:hover {
       transition: background 0.3s;
       background-color: ${(props) => props.theme['yellow-dark']}; 
     }
-  }
+
+    p{
+      color: ${(props) => props.theme['white']};
+      
+    }
 `
