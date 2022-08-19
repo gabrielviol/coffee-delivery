@@ -15,7 +15,7 @@ import {
           <p>Pagamento</p>
           <span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
   
-        <PaymentOptions>
+        <PaymentOptions >
           <button type="button">
             <CreditCard />
             Cartão de Crédito
