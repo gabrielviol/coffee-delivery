@@ -1,4 +1,5 @@
 import { useContext } from "react";
+
 import { UpdateCartItem, useCart } from "../../../../hooks/useCart";
 import { formatPrice } from "../../../../util/format";
 
@@ -6,6 +7,7 @@ import { CoffeeItemProps } from "../../../Home/components/CoffeeItem";
 import { CoffeeSummaryItem } from "../CoffeSummaryItem";
 
 import {
+  Link,
   SummaryContainer,
   SummaryContent,
   SummaryTotal
@@ -49,8 +51,11 @@ export function Summary() {
               <h2>Total</h2>
               <h2>{formatPrice(total)}</h2>
             </div>
-
-            <button type="button">Confirmar Pedido</button>
+            <Link to="/success">
+              <p>
+                Confirmar Pedido
+              </p>
+            </Link>
 
           </SummaryTotal>
       </SummaryContent>

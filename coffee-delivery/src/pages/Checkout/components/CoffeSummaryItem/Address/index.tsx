@@ -5,7 +5,7 @@ import {
     AddressFormGroup 
 } from "./styles";
 import {
-  } from "../../styles";
+  } from "../../../styles";
 
 export function Address(){
     return (
