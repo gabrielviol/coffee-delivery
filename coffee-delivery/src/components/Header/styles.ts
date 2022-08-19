@@ -42,7 +42,7 @@ export const Link = styled(NavLink)`
   align-items: center;
   border: none;
   padding: 0.5rem;
-  border: 1px solid ${(props) => props.theme['yellow-dark']};
+  border: 1px solid ${(props) => props.theme['yellow-light']};
   position: relative;
   transition: all 0.2s;
   &:hover:not(:disabled) {
