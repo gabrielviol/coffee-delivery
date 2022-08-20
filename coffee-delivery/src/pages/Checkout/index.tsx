@@ -14,10 +14,8 @@ export const Checkout = () => {
   return (
     <CheckoutContainer>
       <LeftContainer>
-        <FormProvider>
           <Address />
           <Payment />
-        </FormProvider>
       </LeftContainer>
 
       <RightContainer>
