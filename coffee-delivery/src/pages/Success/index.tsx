@@ -14,21 +14,21 @@ export function Success() {
                         <a className='Map'>
                             <MapPin size={20} weight='fill' />
                         </a>
-                        <p>Entrega em Rua Lorem ipsum dolor sit amet</p>
+                        <p>Entrega em {}</p>
                     </div>
 
                     <div >
                         <a className='Timer'>
                             <Timer size={20} />
                         </a>
-                        <p>Previsão de entrega</p>
+                        <p>Previsão de entrega <br/><span>20 min - 30 min</span></p>
                     </div>
 
                     <div >
                         <a className='Currency'>
                             <CurrencyDollar size={20} />
                         </a>
-                        <p>Pagamento na entrega</p>
+                        <p>Pagamento na entrega <br/><span>Cartão de crédito</span></p>
                     </div>
                 </div>
             </ContainerInfo>

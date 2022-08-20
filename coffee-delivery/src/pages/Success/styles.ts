@@ -32,22 +32,47 @@ export const ContainerInfo = styled.div`
         color: ${(props) => props.theme['base-subtitle']};
     }
 
+    p{
+        font-size: 16px;
+        font-family: 'Roboto';
+        font-weight: 400;
+        line-height: 130%;
+        color: ${(props) => props.theme['base-text']};
+        span{
+            font-weight: 700;
+            font-size: 16px;
+        }
+    }
+
     .border{
-        border: 1px  solid black;
+        position: relative;
+        background: ${(props) => props.theme['white']};
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         padding: 40px;
         gap: 32px;
-
         border-radius: 6px 36px;
+        
 
         div{
             display: flex;
             align-items: center;
             gap: 10px;
         }
+    }
+
+    .border::after{
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: -1px;
+        left: -1px;
+        right: -1px;
+        bottom: -1px;
+        background: linear-gradient(120deg, rgb(219, 172, 44, 1), rgb(128, 71, 248, 1));
+        border-radius: 6px 36px;
     }
 
     a{
