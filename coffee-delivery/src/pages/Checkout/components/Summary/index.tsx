@@ -15,17 +15,17 @@ import {
 
 
 export function Summary() {
-  
+
   const { items } = useContext(useCart);
 
   const totalItens =
-      items.reduce((sumTotal, product) => {
-        return sumTotal + product.price * product.amount
-      }, 0)
+    items.reduce((sumTotal, product) => {
+      return sumTotal + product.price * product.amount
+    }, 0)
 
-    const frete = 3.5
+  const frete = 3.5
 
-    const total = frete + totalItens
+  const total = frete + totalItens
 
 
   return (
@@ -37,27 +37,30 @@ export function Summary() {
         <CoffeeSummaryItem />
 
         <SummaryTotal >
-            <div>
-              <p>Total de Itens</p>
-              <span>{formatPrice(totalItens)}</span>
-            </div>
+          <div>
+            <p>Total de Itens</p>
+            <span>{formatPrice(totalItens)}</span>
+          </div>
 
-            <div>
-              <p>Entrega</p>
-              <span>{formatPrice(frete)}</span>
-            </div>
+          <div>
+            <p>Entrega</p>
+            <span>{formatPrice(frete)}</span>
+          </div>
 
-            <div>
-              <h2>Total</h2>
-              <h2>{formatPrice(total)}</h2>
-            </div>
-            <Link to="/success">
-              <p>
-                Confirmar Pedido
-              </p>
-            </Link>
+          <div>
+            <h2>Total</h2>
+            <h2>{formatPrice(total)}</h2>
+          </div>
+          
+          <Link to="/success">
+          <button >
+            Confirmar Pedido
+          </button>
+          </Link>
+          
 
-          </SummaryTotal>
+
+        </SummaryTotal>
       </SummaryContent>
     </SummaryContainer>
   );

@@ -35,9 +35,18 @@ export const SummaryTotal = styled.div`
     margin-top: 0.5rem;
     font-size: 1.25rem;
   }
-  
-  
+  button{
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: ${(props) => props.theme['white']};
+    background-color: ${(props) => props.theme['yellow']}; 
+    cursor: pointer;
+  } 
 `
+
 export const Link = styled(NavLink)`
     display: flex;
     align-items: center;
@@ -47,18 +56,11 @@ export const Link = styled(NavLink)`
     border-radius: 6px;
     border: none;
     background-color: ${(props) => props.theme['yellow']}; 
-    text-transform: uppercase;
-    color: ${(props) => props.theme['white']}; 
-    font-weight: 700;
-    text-decoration: none;
-    cursor: pointer;
+    cursor: pointer; 
     &:hover {
       transition: background 0.3s;
-      background-color: ${(props) => props.theme['yellow-dark']}; 
-    }
-
-    p{
-      color: ${(props) => props.theme['white']};
-      
-    }
+      background-color: ${(props) => props.theme['yellow-dark']};
+    }  
 `
+
+
