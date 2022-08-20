@@ -2,7 +2,6 @@ import { Minus, Plus, Trash } from "phosphor-react";
 import { useContext, useState } from "react";
 import { formatPrice } from '../../../../util/format';
 import { UpdateCartItem, useCart } from "../../../../hooks/useCart";
-import { CoffeeItemProps } from "../../../Home/components/CoffeeItem";
 
 import {
   CoffeeItemContainer,

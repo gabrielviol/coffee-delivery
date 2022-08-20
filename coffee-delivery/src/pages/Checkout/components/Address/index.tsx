@@ -5,9 +5,10 @@ import {
     AddressFormGroup 
 } from "./styles";
 import {
-  } from "../../../styles";
+  } from "../../styles";
 
 export function Address(){
+
     return (
       <AddressContainer>
         <h1>Complete seu pedido</h1>
@@ -22,10 +23,10 @@ export function Address(){
             <AddressFormGroup>
               <input type="text" placeholder="CEP" required />
             </AddressFormGroup>
-            <input type="text" placeholder="Rua" required />
+            <input type="text"placeholder="Rua" required />
             <AddressFormGroup>
               <input type="text" placeholder="Número" required />
-              <input type="text" placeholder="Complemento" />
+              <input type="text" placeholder="Complemento"/>
               <span>Opcional</span>
             </AddressFormGroup>
             <AddressFormGroup>

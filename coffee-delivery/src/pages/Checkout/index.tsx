@@ -1,8 +1,10 @@
-import { Address } from "./components/CoffeSummaryItem/Address";
-import { Payment } from "./components/Payment";
+import { Address } from "./components/Address";
+import { Payment } from "./components/Address/Payment";
 import { Summary } from "./components/Summary";
 
-import { 
+import { FormProvider } from 'react-hook-form'
+
+import {
   CheckoutContainer,
   LeftContainer,
   RightContainer
@@ -12,8 +14,10 @@ export const Checkout = () => {
   return (
     <CheckoutContainer>
       <LeftContainer>
-        <Address />
-        <Payment />
+        <FormProvider>
+          <Address />
+          <Payment />
+        </FormProvider>
       </LeftContainer>
 
       <RightContainer>
