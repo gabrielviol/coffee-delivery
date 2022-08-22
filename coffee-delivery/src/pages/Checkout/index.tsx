@@ -1,5 +1,4 @@
 import { Address } from "./components/Address";
-import { Payment } from "./components/Address/Payment";
 import { Summary } from "./components/Summary";
 
 import {
@@ -13,7 +12,6 @@ export const Checkout = () => {
     <CheckoutContainer>
       <LeftContainer>
           <Address />
-          <Payment />
       </LeftContainer>
 
       <RightContainer>
