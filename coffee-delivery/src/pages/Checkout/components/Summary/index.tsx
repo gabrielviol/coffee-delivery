@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AdressInfo, useCart } from "../../../../hooks/useCart";
+import { AddressInfo, useCart } from "../../../../hooks/useCart";
 
 import { formatPrice } from "../../../../util/format";
 
@@ -13,20 +13,12 @@ import {
 } from "./styles";
 
 
-export function Summary( address : AdressInfo) {
+export function Summary( address : AddressInfo) {
 
-  const { items, addAdress } = useContext(useCart);
+  const { items, addAddress } = useContext(useCart);
 
   function handleAddAddress(){
-    addAdress({
-      cep: address.cep,
-      rua: address.rua,
-      numero: address.numero, 
-      cidade: address.cidade, 
-      complemento: address.complemento,
-      pagamento: address.pagamento,
-      uf: address.uf
-    })
+    
   }
 
   const totalItens =

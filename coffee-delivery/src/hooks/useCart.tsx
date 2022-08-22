@@ -9,7 +9,7 @@ export interface UpdateCartItem extends CoffeeType {
   amount: number
 }
 
-export interface AdressInfo {
+export interface AddressInfo {
   cep: number;
   rua: string;
   numero: number;
@@ -20,9 +20,9 @@ export interface AdressInfo {
 }
 
 export interface Cart {
-  address: AdressInfo[],
+  address: AddressInfo[],
   items: UpdateCartItem[],
-  addAdress: (info:AdressInfo) => void,
+  addAddress: (info:AddressInfo) => void,
   addItem: (items: UpdateCartItem) => void,
   removeItem: (items: UpdateCartItem) => void
   updatedAmount: ({id, amount}: UpdateCartItem) => void
@@ -32,7 +32,7 @@ export const useCart = createContext<Cart>({} as Cart);
 
 export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   const [items, setItems] = useState<UpdateCartItem[]>([]);
-  const [address, setAdress] = useState<AdressInfo[]>([]);
+  const [address, setAddress] = useState<AddressInfo[]>([]);
 
   function addItem(item: UpdateCartItem) {
     const updatedCart = [...items];
@@ -49,16 +49,16 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
     console.log(updatedCart)
   }
 
-  function addAdress(info: AdressInfo){
-    const attAdress = [...address];
-    const cepExist = attAdress.find(address => address.cep === info.cep)
+  function addAddress(info: AddressInfo){
+    const attAddress = [...address];
+    const cepExist = attAddress.find(address => address.cep === info.cep)
 
     if(cepExist) {
       Error('CEP existente');
     } else {
-      attAdress.push(info);
+      attAddress.push(info);
     }
-    setAdress(attAdress)
+    setAddress(attAddress)
   }
 
   const removeItem = (item: UpdateCartItem) => {
@@ -94,7 +94,7 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
       value={{
         address,
         items,
-        addAdress,
+        addAddress,
         addItem,
         removeItem,
         updatedAmount

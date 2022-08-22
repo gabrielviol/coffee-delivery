@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form'
+import { AddressInfo, useCart } from '../../../../hooks/useCart';
 
 import {
   AddressContainer,
@@ -10,9 +12,22 @@ import {
 export function Address() {
   const { register, handleSubmit, watch } = useForm()
 
-  function handleCreateAdress(data: any){
-    console.log(data)
+  const { addAddress, address } = useContext(useCart);
+
+  function handleCreateAddress(address: any){
+    addAddress({
+      cep: address.cep,
+      rua: address.rua,
+      numero: address.numero, 
+      cidade: address.cidade, 
+      complemento: address.complemento,
+      pagamento: address.pagamento,
+      uf: address.uf
+    })
+    console.log(address)
   }
+
+  console.log(address)
   
   const cep = watch('cep')
   const rua = watch('rua')
@@ -31,7 +46,7 @@ export function Address() {
           <span>Informe o endereço onde deseja receber seu pedido</span>
         </div>
 
-        <AddressForm onChange={handleSubmit(handleCreateAdress)}>
+        <AddressForm onChange={handleSubmit(handleCreateAddress)}>
           <AddressFormGroup>
             <input
               type="text"
