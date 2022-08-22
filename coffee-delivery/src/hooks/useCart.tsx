@@ -9,8 +9,20 @@ export interface UpdateCartItem extends CoffeeType {
   amount: number
 }
 
+export interface AdressInfo {
+  cep: number;
+  rua: string;
+  numero: number;
+  cidade: string;
+  complemento?: string;
+  uf: string;
+  pagamento: string;
+}
+
 export interface Cart {
+  address: AdressInfo[],
   items: UpdateCartItem[],
+  addAdress: (info:AdressInfo) => void,
   addItem: (items: UpdateCartItem) => void,
   removeItem: (items: UpdateCartItem) => void
   updatedAmount: ({id, amount}: UpdateCartItem) => void
@@ -20,6 +32,7 @@ export const useCart = createContext<Cart>({} as Cart);
 
 export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   const [items, setItems] = useState<UpdateCartItem[]>([]);
+  const [address, setAdress] = useState<AdressInfo[]>([]);
 
   function addItem(item: UpdateCartItem) {
     const updatedCart = [...items];
@@ -34,8 +47,18 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
     }
     setItems(updatedCart)
     console.log(updatedCart)
+  }
 
+  function addAdress(info: AdressInfo){
+    const attAdress = [...address];
+    const cepExist = attAdress.find(address => address.cep === info.cep)
 
+    if(cepExist) {
+      Error('CEP existente');
+    } else {
+      attAdress.push(info);
+    }
+    setAdress(attAdress)
   }
 
   const removeItem = (item: UpdateCartItem) => {
@@ -69,7 +92,9 @@ export const CartContextProvider = ({ children }: CartContextProviderProps) => {
   return (
     <useCart.Provider
       value={{
+        address,
         items,
+        addAdress,
         addItem,
         removeItem,
         updatedAmount

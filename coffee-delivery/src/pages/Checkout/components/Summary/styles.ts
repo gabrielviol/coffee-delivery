@@ -35,16 +35,7 @@ export const SummaryTotal = styled.div`
     margin-top: 0.5rem;
     font-size: 1.25rem;
   }
-  button{
-    font-size: 20px;
-    font-weight: 700;
-    border: none;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: ${(props) => props.theme['white']};
-    background-color: ${(props) => props.theme['yellow']}; 
-    cursor: pointer;
-  } 
+  
 `
 
 export const Link = styled(NavLink)`
@@ -52,15 +43,48 @@ export const Link = styled(NavLink)`
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
+    text-decoration: none;
     height: 3rem;
     border-radius: 6px;
-    border: none;
     background-color: ${(props) => props.theme['yellow']}; 
     cursor: pointer; 
-    &:hover {
+    &:hover:not(:disabled) {
       transition: background 0.3s;
       background-color: ${(props) => props.theme['yellow-dark']};
-    }  
+    } 
+    &[aria-disabled="true"] {
+      display: none;
+      cursor: not-allowed;
+   }
+
+    p {
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: ${(props) => props.theme['white']};
+    } 
 `
+
+// export const Link = styled(NavLink)`
+//   border-radius: 6px;
+//   background-color: ${(props) => props.theme['yellow-light']};
+//   color: ${(props) => props.theme['yellow-dark']};
+//   font-size: 1.25rem;
+//   display: flex;
+//   align-items: center;
+//   border: none;
+//   padding: 0.5rem;
+//   border: 1px solid ${(props) => props.theme['yellow-light']};
+//   position: relative;
+//   transition: all 0.2s;
+//   &:hover:not(:disabled) {
+//     filter: brightness(1.05);
+//     cursor: pointer;
+//     border: 1px solid ${(props) => props.theme['yellow-dark']};
+//   }
+//   &:disabled  {
+//     cursor: not-allowed;
+//   }
+// `
 
 

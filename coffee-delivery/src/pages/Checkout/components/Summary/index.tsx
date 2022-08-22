@@ -1,9 +1,8 @@
 import { useContext } from "react";
+import { AdressInfo, useCart } from "../../../../hooks/useCart";
 
-import { UpdateCartItem, useCart } from "../../../../hooks/useCart";
 import { formatPrice } from "../../../../util/format";
 
-import { CoffeeItemProps } from "../../../Home/components/CoffeeItem";
 import { CoffeeSummaryItem } from "../CoffeSummaryItem";
 
 import {
@@ -14,9 +13,21 @@ import {
 } from "./styles";
 
 
-export function Summary() {
+export function Summary( address : AdressInfo) {
 
-  const { items } = useContext(useCart);
+  const { items, addAdress } = useContext(useCart);
+
+  function handleAddAddress(){
+    addAdress({
+      cep: address.cep,
+      rua: address.rua,
+      numero: address.numero, 
+      cidade: address.cidade, 
+      complemento: address.complemento,
+      pagamento: address.pagamento,
+      uf: address.uf
+    })
+  }
 
   const totalItens =
     items.reduce((sumTotal, product) => {
@@ -51,15 +62,12 @@ export function Summary() {
             <h2>Total</h2>
             <h2>{formatPrice(total)}</h2>
           </div>
-          
-          <Link to="/success">
-          <button >
-            Confirmar Pedido
-          </button>
+
+          <Link to="/success" aria-disabled="false" onClick={handleAddAddress}>
+            <p>
+              Confirmar Pedido
+            </p>
           </Link>
-          
-
-
         </SummaryTotal>
       </SummaryContent>
     </SummaryContainer>
