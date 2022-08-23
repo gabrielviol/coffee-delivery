@@ -27,7 +27,18 @@ export function Address() {
   const { items } = useContext(useCart);
 
 
-  const { register, handleSubmit, watch } = useForm()
+  const { register, handleSubmit, watch } = useForm({
+    defaultValues: {
+      cep: '',
+      rua: '',
+      cidade: '',
+      numero: '',
+      uf: '',
+      complemento: '',
+      bairro: '',
+      pagamento: 'credito' || 'debito' || 'dinheiro',
+    }
+  })
 
   const { addAddress } = useContext(useCart);
 
@@ -44,25 +55,19 @@ export function Address() {
 
   const total = frete + totalItens
 
-  function handleChangeAddress(address: any){
+  function handleChangeAddress(address: any) {
     const attAddress = [...upAddress, address];
     setUpAddress(attAddress);
 
   }
-  function handleCreateAddress(address: AddressInfo) {
-    addAddress({
-      cep: address.cep,
-      rua: address.rua,
-      numero: address.numero,
-      cidade: address.cidade,
-      complemento: address.complemento,
-      pagamento: selectedPaymentType,
-      uf: address.uf
-  })
+  function handleCreateAddress(address: any) {
+    addAddress(
+      address
+    )
     console.log(address)
   }
 
-  function handlePaymentType(type: PaymentType){
+  function handlePaymentType(type: PaymentType) {
     setSelectedPaymentType(type)
   }
 
@@ -77,86 +82,90 @@ export function Address() {
   return (
     <Container>
       <div>
-      <AddressContainer>
-        <h1>Complete seu pedido</h1>
-        <AddressContent>
-          <div>
-            <p>Endereço de Entrega</p>
-            <span>Informe o endereço onde deseja receber seu pedido</span>
-          </div>
-          <AddressForm onChange={handleSubmit(handleChangeAddress)}>
-            <AddressFormGroup>
+        <AddressContainer>
+          <h1>Complete seu pedido</h1>
+          <AddressContent>
+            <div>
+              <p>Endereço de Entrega</p>
+              <span>Informe o endereço onde deseja receber seu pedido</span>
+            </div>
+            <AddressForm onChange={handleSubmit(handleChangeAddress)}>
+              <AddressFormGroup>
+                <input
+                  type="text"
+                  placeholder="CEP"
+                  {...register('cep', { valueAsNumber: true })}
+                  required
+                />
+              </AddressFormGroup>
               <input
                 type="text"
-                placeholder="CEP"
-                {...register('cep', { valueAsNumber: true })}
+                placeholder="Rua"
+                {...register('rua')}
                 required
               />
-            </AddressFormGroup>
-            <input
-              type="text"
-              placeholder="Rua"
-              {...register('rua')}
-              required
-            />
-            <AddressFormGroup>
-              <input
-                type="text"
-                placeholder="Número"
-                {...register('numero', { valueAsNumber: true })}
-                required
-              />
-              <input
-                type="text"
-                placeholder="Complemento"
-                {...register('complemento')}
-              />
-              
-              <span>Opcional</span>
-            </AddressFormGroup>
-            <AddressFormGroup>
-            <input
-                type="text"
-                placeholder="Bairro"
-                {...register('bairro')}
-              />
-              <input
-                type="text"
-                placeholder="Cidade"
-                {...register('cidade')}
-                required
-              />
-              <input
-                type="text"
-                placeholder="UF"
-                {...register('uf')}
-                required
-              />
-            </AddressFormGroup>
-          </AddressForm>
-        </AddressContent>
-      </AddressContainer>
-      <PaymentContainer>
-        <p>Pagamento</p>
-        <span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
+              <AddressFormGroup>
+                <input
+                  type="text"
+                  placeholder="Número"
+                  {...register('numero', { valueAsNumber: true })}
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Complemento"
+                  {...register('complemento')}
+                />
 
-        <PaymentOptions >
-          <button type="button" onClick={() =>handlePaymentType('credito')}>
-            <CreditCard />
-            Cartão de Crédito
-          </button>
+                <span>Opcional</span>
+              </AddressFormGroup>
+              <AddressFormGroup>
+                <input
+                  type="text"
+                  placeholder="Bairro"
+                  {...register('bairro')}
+                />
+                <input
+                  type="text"
+                  placeholder="Cidade"
+                  {...register('cidade')}
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="UF"
+                  {...register('uf')}
+                  required
+                />
+              </AddressFormGroup>
+            </AddressForm>
+          </AddressContent>
+        </AddressContainer>
+        <PaymentContainer>
+          <p>Pagamento</p>
+          <span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
 
-          <button type="button" onClick={() => handlePaymentType('debito')}>
-            <Bank />
-            Cartão de Débito
-          </button>
+          <PaymentOptions  >
+            <label htmlFor='credito' {...register('pagamento')}>
+              <input type="radio" id="credito" name="pagamento" value='credito' />
+              <CreditCard />
+              Cartão de Crédito
+            </label>
 
-          <button type="button" onClick={() => handlePaymentType('dinheiro')}>
-            <Money />
-            Dinheiro
-          </button>
-        </PaymentOptions>
-      </PaymentContainer>
+            <label htmlFor="debito" {...register('pagamento')}>
+              <input type="radio" id="debito" name="pagamento" value='debito' />
+              <Bank />
+              Cartão de Débito
+            </label>
+
+            <label htmlFor="dinheiro" {...register('pagamento')}>
+              <input type="radio" id="dinheiro" name="pagamento" value='dinheiro' />
+              <Money />
+              Dinheiro
+            </label>
+
+          </PaymentOptions>
+        </PaymentContainer>
       </div>
       <SummaryContainer>
         <h1>Cafés selecionados</h1>

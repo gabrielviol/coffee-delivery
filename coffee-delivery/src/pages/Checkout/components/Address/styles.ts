@@ -90,14 +90,15 @@ export const PaymentOptions = styled.div`
   margin-top: 2rem;
   display: flex;
   gap: 1rem;
-  button {
+  label {
+    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     height: 3rem;
     width: 100%;
-    color: ${(props) => props.theme['base-text']}; 
+    color: ${(props) => props.theme['base-text']};
     text-transform: uppercase;
     font-size: 0.775rem;
     border: 1px solid transparent;
@@ -114,6 +115,12 @@ export const PaymentOptions = styled.div`
       border: 1px solid ${(props) => props.theme['purple']}; 
       color: ${(props) => props.theme['purple']}; 
     }
+    
+    input{
+      
+    }
+    
+    
   }
   svg {
     font-size: 1rem;
