@@ -1,36 +1,59 @@
-import { Bank, CreditCard, Money } from 'phosphor-react';
-import { useContext } from 'react';
-import { useForm } from 'react-hook-form'
+import { useContext, useState } from 'react';
 import { AddressInfo, useCart } from '../../../../hooks/useCart';
+import { useForm } from 'react-hook-form'
+import { formatPrice } from "../../../../util/format";
+
+import { CoffeeSummaryItem } from '../CoffeSummaryItem';
+import { Bank, CreditCard, Money } from 'phosphor-react';
 
 import {
   AddressContainer,
   AddressContent,
   AddressForm,
   AddressFormGroup,
+  Container,
+  Link,
   PaymentContainer,
-  PaymentOptions
+  PaymentOptions,
+  SummaryContainer,
+  SummaryContent,
+  SummaryTotal
 } from "./styles";
 
 export function Address() {
+  const { items } = useContext(useCart);
+
   const { register, handleSubmit, watch } = useForm()
 
   const { addAddress, address } = useContext(useCart);
 
-  function handleCreateAddress(address: any) {
-    addAddress({
-      cep: address.cep,
-      rua: address.rua,
-      numero: address.numero,
-      cidade: address.cidade,
-      complemento: address.complemento,
-      pagamento: address.pagamento,
-      uf: address.uf
-    })
+  const [upAddress, setUpAddress] = useState<AddressInfo[]>([]);
 
+
+
+  const totalItens =
+    items.reduce((sumTotal, product) => {
+      return sumTotal + product.price * product.amount
+    }, 0)
+
+  const frete = 3.5
+
+  const total = frete + totalItens
+
+  function handleChangeAddress(address: any){
+    
+    const attAddress = [...upAddress, address];
+    setUpAddress(attAddress);
+    console.log(attAddress)
   }
 
-  console.log(address)
+  function handleCreateAddress(address: any) {
+    addAddress(
+      address
+    )
+      console.log(address)
+  }
+
 
   const cep = watch('cep')
   const rua = watch('rua')
@@ -40,17 +63,16 @@ export function Address() {
   const isSubmitDisabled = (!cep || !number || !rua || !city || !uf)
 
   return (
-    <>
+    <Container>
+      <div>
       <AddressContainer>
         <h1>Complete seu pedido</h1>
-
         <AddressContent>
           <div>
             <p>Endereço de Entrega</p>
             <span>Informe o endereço onde deseja receber seu pedido</span>
           </div>
-
-          <AddressForm onChange={handleSubmit(handleCreateAddress)}>
+          <AddressForm onChange={handleSubmit(handleChangeAddress)}>
             <AddressFormGroup>
               <input
                 type="text"
@@ -58,7 +80,6 @@ export function Address() {
                 {...register('cep', { valueAsNumber: true })}
                 required
               />
-
             </AddressFormGroup>
             <input
               type="text"
@@ -66,7 +87,6 @@ export function Address() {
               {...register('rua')}
               required
             />
-
             <AddressFormGroup>
               <input
                 type="text"
@@ -119,6 +139,38 @@ export function Address() {
           </button>
         </PaymentOptions>
       </PaymentContainer>
-    </>
+      </div>
+      <SummaryContainer>
+        <h1>Cafés selecionados</h1>
+
+        <SummaryContent>
+
+          <CoffeeSummaryItem />
+
+          <SummaryTotal >
+            <div>
+              <p>Total de Itens</p>
+              <span>{formatPrice(totalItens)}</span>
+            </div>
+
+            <div>
+              <p>Entrega</p>
+              <span>{formatPrice(frete)}</span>
+            </div>
+
+            <div>
+              <h2>Total</h2>
+              <h2>{formatPrice(total)}</h2>
+            </div>
+
+            <Link to="/success" aria-disabled={isSubmitDisabled} onClick={handleSubmit(handleCreateAddress)}>
+              <p>
+                Confirmar Pedido
+              </p>
+            </Link>
+          </SummaryTotal>
+        </SummaryContent>
+      </SummaryContainer>
+    </Container>
   );
 }
