@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { AddressInfo, useCart } from '../../../../hooks/useCart';
-import { useForm } from 'react-hook-form'
+import { useForm, useFormState } from 'react-hook-form'
 import { formatPrice } from "../../../../util/format";
 
 import { CoffeeSummaryItem } from '../CoffeSummaryItem';
@@ -20,16 +20,20 @@ import {
   SummaryTotal
 } from "./styles";
 
+type PaymentType = 'credito' | 'debito' | 'dinheiro'
+
+
 export function Address() {
   const { items } = useContext(useCart);
 
+
   const { register, handleSubmit, watch } = useForm()
 
-  const { addAddress, address } = useContext(useCart);
+  const { addAddress } = useContext(useCart);
 
   const [upAddress, setUpAddress] = useState<AddressInfo[]>([]);
 
-
+  const [selectedPaymentType, setSelectedPaymentType] = useState<PaymentType>('dinheiro');
 
   const totalItens =
     items.reduce((sumTotal, product) => {
@@ -41,17 +45,25 @@ export function Address() {
   const total = frete + totalItens
 
   function handleChangeAddress(address: any){
-    
     const attAddress = [...upAddress, address];
     setUpAddress(attAddress);
-    console.log(attAddress)
+
+  }
+  function handleCreateAddress(address: AddressInfo) {
+    addAddress({
+      cep: address.cep,
+      rua: address.rua,
+      numero: address.numero,
+      cidade: address.cidade,
+      complemento: address.complemento,
+      pagamento: selectedPaymentType,
+      uf: address.uf
+  })
+    console.log(address)
   }
 
-  function handleCreateAddress(address: any) {
-    addAddress(
-      address
-    )
-      console.log(address)
+  function handlePaymentType(type: PaymentType){
+    setSelectedPaymentType(type)
   }
 
 
@@ -99,9 +111,15 @@ export function Address() {
                 placeholder="Complemento"
                 {...register('complemento')}
               />
+              
               <span>Opcional</span>
             </AddressFormGroup>
             <AddressFormGroup>
+            <input
+                type="text"
+                placeholder="Bairro"
+                {...register('bairro')}
+              />
               <input
                 type="text"
                 placeholder="Cidade"
@@ -123,17 +141,17 @@ export function Address() {
         <span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
 
         <PaymentOptions >
-          <button type="button">
+          <button type="button" onClick={() =>handlePaymentType('credito')}>
             <CreditCard />
             Cartão de Crédito
           </button>
 
-          <button type="button">
+          <button type="button" onClick={() => handlePaymentType('debito')}>
             <Bank />
             Cartão de Débito
           </button>
 
-          <button type="button">
+          <button type="button" onClick={() => handlePaymentType('dinheiro')}>
             <Money />
             Dinheiro
           </button>
