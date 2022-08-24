@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { AddressInfo, useCart } from '../../../../hooks/useCart';
 import { useForm, useFormState } from 'react-hook-form'
 import { formatPrice } from "../../../../util/format";
+import { useNavigate } from 'react-router-dom';
 
 import { CoffeeSummaryItem } from '../CoffeSummaryItem';
 import { Bank, CreditCard, Money } from 'phosphor-react';
@@ -24,8 +25,7 @@ type PaymentType = 'credito' | 'debito' | 'dinheiro'
 
 
 export function Address() {
-  const { items } = useContext(useCart);
-
+  const { items, addAddress } = useContext(useCart);
 
   const { register, handleSubmit, watch } = useForm({
     defaultValues: {
@@ -36,15 +36,9 @@ export function Address() {
       uf: '',
       complemento: '',
       bairro: '',
-      pagamento: 'credito' || 'debito' || 'dinheiro',
+      pagamento: 'dinheiro' || 'debito' || 'credito',
     }
   })
-
-  const { addAddress } = useContext(useCart);
-
-  const [upAddress, setUpAddress] = useState<AddressInfo[]>([]);
-
-  const [selectedPaymentType, setSelectedPaymentType] = useState<PaymentType>('dinheiro');
 
   const totalItens =
     items.reduce((sumTotal, product) => {
@@ -55,20 +49,15 @@ export function Address() {
 
   const total = frete + totalItens
 
-  function handleChangeAddress(address: any) {
-    const attAddress = [...upAddress, address];
-    setUpAddress(attAddress);
+  const navigate = useNavigate()
 
-  }
+  
   function handleCreateAddress(address: any) {
     addAddress(
       address
     )
     console.log(address)
-  }
-
-  function handlePaymentType(type: PaymentType) {
-    setSelectedPaymentType(type)
+    navigate('/success')
   }
 
 
@@ -89,8 +78,9 @@ export function Address() {
               <p>Endereço de Entrega</p>
               <span>Informe o endereço onde deseja receber seu pedido</span>
             </div>
-            <AddressForm onChange={handleSubmit(handleChangeAddress)}>
-              <AddressFormGroup>
+
+            <AddressForm id='form'>
+              <AddressFormGroup >
                 <input
                   type="text"
                   placeholder="CEP"
@@ -104,7 +94,7 @@ export function Address() {
                 {...register('rua')}
                 required
               />
-              <AddressFormGroup>
+              <AddressFormGroup >
                 <input
                   type="text"
                   placeholder="Número"
@@ -138,34 +128,40 @@ export function Address() {
                   required
                 />
               </AddressFormGroup>
+
+
+              <PaymentContainer>
+                <p>Pagamento</p>
+                <span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
+
+                <PaymentOptions  >
+                  <label htmlFor="dinheiro" {...register('pagamento')}>
+                    <input type="radio" id="dinheiro" name="pagamento" value='dinheiro' />
+                    <Money />
+                    Dinheiro
+                  </label>
+
+                  <label htmlFor='credito' {...register('pagamento')}>
+                    <input type="radio" id="credito" name="pagamento" value='credito' />
+                    <CreditCard />
+                    Cartão de Crédito
+                  </label>
+
+                  <label htmlFor="debito" {...register('pagamento')}>
+                    <input type="radio" id="debito" name="pagamento" value='debito' />
+                    <Bank />
+                    Cartão de Débito
+                  </label>
+
+
+                </PaymentOptions>
+              </PaymentContainer>
+
             </AddressForm>
+
           </AddressContent>
         </AddressContainer>
-        <PaymentContainer>
-          <p>Pagamento</p>
-          <span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
 
-          <PaymentOptions  >
-            <label htmlFor='credito' {...register('pagamento')}>
-              <input type="radio" id="credito" name="pagamento" value='credito' />
-              <CreditCard />
-              Cartão de Crédito
-            </label>
-
-            <label htmlFor="debito" {...register('pagamento')}>
-              <input type="radio" id="debito" name="pagamento" value='debito' />
-              <Bank />
-              Cartão de Débito
-            </label>
-
-            <label htmlFor="dinheiro" {...register('pagamento')}>
-              <input type="radio" id="dinheiro" name="pagamento" value='dinheiro' />
-              <Money />
-              Dinheiro
-            </label>
-
-          </PaymentOptions>
-        </PaymentContainer>
       </div>
       <SummaryContainer>
         <h1>Cafés selecionados</h1>
@@ -173,7 +169,6 @@ export function Address() {
         <SummaryContent>
 
           <CoffeeSummaryItem />
-
           <SummaryTotal >
             <div>
               <p>Total de Itens</p>
@@ -191,10 +186,13 @@ export function Address() {
             </div>
 
             <Link to="/success" aria-disabled={isSubmitDisabled} onClick={handleSubmit(handleCreateAddress)}>
+
               <p>
                 Confirmar Pedido
               </p>
+
             </Link>
+
           </SummaryTotal>
         </SummaryContent>
       </SummaryContainer>
