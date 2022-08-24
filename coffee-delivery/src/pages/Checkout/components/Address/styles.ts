@@ -186,7 +186,6 @@ export const Link = styled(NavLink)`
       display: none;
       cursor: not-allowed;
    }
-
     p {
       font-size: 20px;
       font-weight: 700;
