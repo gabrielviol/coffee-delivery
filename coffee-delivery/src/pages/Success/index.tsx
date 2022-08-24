@@ -37,7 +37,8 @@ export function Success({ }: AddressInfo) {
                                     <a className='Currency'>
                                         <CurrencyDollar size={20} />
                                     </a>
-                                    <p>Pagamento na entrega <br /><span>Cartão de crédito</span></p>
+                                    <p>Pagamento na entrega <br /><span>Cartão de crédito</span></p> 
+                                    
                                 </div>
                             </div>
                         </>
