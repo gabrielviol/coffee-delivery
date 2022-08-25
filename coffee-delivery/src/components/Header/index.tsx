@@ -19,6 +19,7 @@ export function Header() {
     const cartSize = items.length
 
     return (
+
         <HeaderContainer>
             <NavLink to='/'>
                 <img src={logoCoffee} alt="" />
@@ -35,5 +36,6 @@ export function Header() {
                 </Link>
             </SideRight>
         </HeaderContainer>
+    
     )
 }
