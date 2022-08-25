@@ -36,7 +36,7 @@ export function Address() {
       uf: '',
       complemento: '',
       bairro: '',
-      pagamento: 'dinheiro' || 'debito' || 'credito',
+      pagamento: 'credito' || 'debito' || 'dinheiro',
     }
   })
 
@@ -51,7 +51,7 @@ export function Address() {
 
   const navigate = useNavigate()
 
-  
+
   function handleCreateAddress(address: any) {
     addAddress(
       address
@@ -135,12 +135,6 @@ export function Address() {
                 <span>O pagamento é feito na entrega. Escolha a forma que deseja pagar</span>
 
                 <PaymentOptions  >
-                  <label htmlFor="dinheiro" {...register('pagamento')}>
-                    <input type="radio" id="dinheiro" name="pagamento" value='dinheiro' />
-                    <Money />
-                    Dinheiro
-                  </label>
-
                   <label htmlFor='credito' {...register('pagamento')}>
                     <input type="radio" id="credito" name="pagamento" value='credito' />
                     <CreditCard />
@@ -151,6 +145,12 @@ export function Address() {
                     <input type="radio" id="debito" name="pagamento" value='debito' />
                     <Bank />
                     Cartão de Débito
+                  </label>
+
+                  <label htmlFor="dinheiro" {...register('pagamento')}>
+                    <input type="radio" id="dinheiro" name="pagamento" value='dinheiro' />
+                    <Money />
+                    Dinheiro
                   </label>
 
 

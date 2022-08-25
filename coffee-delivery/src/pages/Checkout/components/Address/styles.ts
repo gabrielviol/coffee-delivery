@@ -74,9 +74,8 @@ export const PaymentContainer = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 6px;
-  margin-top: 1rem;
+  margin-top: 3rem;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px 0px;
-  padding: 3rem;
   box-sizing: border-box;
   font-size: 1rem;
   span {
