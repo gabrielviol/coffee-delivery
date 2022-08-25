@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components'
 
 export const HeaderContainer = styled.header`
+    position: sticky;
+    top: 0;
     height: 6.5rem;
     display: flex;
     align-items: center;
@@ -9,6 +11,7 @@ export const HeaderContainer = styled.header`
     max-width: 1080px;
     margin: 0 auto;
     padding: 0 1rem;
+    background: ${(props) => props.theme['white']};
 `
 
 export const SideRight = styled.div`

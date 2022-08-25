@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { useCart } from "../../../../hooks/useCart";
-import { formatPrice } from "../../../../util/format";
 import { Minus, Plus, ShoppingCart } from "phosphor-react";
 import { CoffeeType } from "../../../../coffees";
 
