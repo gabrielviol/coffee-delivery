@@ -5,25 +5,27 @@ import image from '../../assets/image.svg'
 import { useContext } from 'react';
 import { AddressInfo, useCart } from '../../hooks/useCart';
 
-export function Success({ }: AddressInfo) {
+export function Success() {
     const { address } = useContext(useCart);
     const ultimo = address.slice(-1)
     console.log(ultimo)
 
+
     return (
         <Container>
-            <ContainerInfo>
+            <>
                 {ultimo.map(info => {
                     return (
-                        <>
+                        <ContainerInfo key={info.cep}>
                             <h1>Uhu! Pedido confirmado</h1>
                             <span>Agora é só aguardar que logo o café chegará até você</span>
-                            <div className='border'>
+                            <div className='border' key={info.cep}>
                                 <div >
                                     <a className='Map'>
                                         <MapPin size={20} weight='fill' />
                                     </a>
-                                    <p>Entrega em {info.cep}</p>
+                                    <p>Entrega em <span>{info.rua}, {info.numero}</span> <br /> {info.bairro} - {info.cidade}, {info.uf}</p>
+                                    
                                 </div>
 
                                 <div >
@@ -37,14 +39,19 @@ export function Success({ }: AddressInfo) {
                                     <a className='Currency'>
                                         <CurrencyDollar size={20} />
                                     </a>
-                                    <p>Pagamento na entrega <br /><span>Cartão de crédito</span></p> 
+                                    <p>Pagamento na entrega <br />
+                                    <span>
+                                        {info.pagamento === 'credito' ? 'Cartão de crédito' : null}
+                                        {info.pagamento === 'debito' ? 'Cartão de debito' : null}
+                                        {info.pagamento === 'dinheiro' ? 'Dinheiro' : null}
+                                    </span></p> 
                                     
                                 </div>
                             </div>
-                        </>
+                        </ContainerInfo>
                     )
                 })}
-            </ContainerInfo>
+            </>
             <img src={image} />
         </Container>
     )

@@ -14,6 +14,7 @@ export interface AddressInfo {
   rua: string;
   numero: number;
   cidade: string;
+  bairro: string;
   complemento?: string;
   uf: string;
   pagamento: string;
