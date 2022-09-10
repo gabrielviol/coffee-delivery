@@ -1,32 +1,59 @@
-## Coffee Delivery
-<br>
-Desafio 02 da nova trilha de reactjs 2022 do ignite, onde tinha como objetivo de desenvolver uma aplicação seguindo o <a href=https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate>Layout<a/> com as funcionalidades disponibilizadas no figma.
+<h1 align="center"> <img alt="Logo coffee delivery" src="https://github.com/gabrielviol/desafio02-ignite2022-coffee-delivery/blob/f411063a949731be14172c8ef7dd4a3f75facd50/coffee-delivery/.github/images/logo.png" width="100px" /> </h1>
 
-## :zap: **Tech Stack**
+<p align="center">
+  <a href="#-layout">Layout</a> •
+  <a href="#-techs-and-tools">Techs and tools</a> •
+  <a href="#arrow_forward-como-executar">Como executar</a> •
+  <a href="#camera_flash-screenshots">Screenshots</a>
+</p>
+
+<img src="https://github.com/gabrielviol/desafio02-ignite2022-coffee-delivery/blob/f411063a949731be14172c8ef7dd4a3f75facd50/coffee-delivery/.github/images/coffeDelivery.png" alt="Preview do projeto" width="500px" >
+
+
+### Aplicação de uma cafeteria fictícia para compra e entrega de seu café.
+
+## 🔖 Layout
+
+Layout desenvolvido pela [Millena K Martins](https://www.figma.com/@millenakmartins). Você pode visualizar acessando este [link](https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate)
+
+## ⚡ Techs and tools
 
 -  [ReactJS](https://reactjs.org/)
 -  [TypeScript](https://www.typescriptlang.org/)
 -  [Vite](https://vitejs.dev/)
--  [styled-components](https://www.styled-components.com/)
--  [react-hook-form](https://react-hook-form.com/)
--  [react-router-dom](https://v5.reactrouter.com/web/guides/quick-start)
--  [phosphor-react](https://phosphoricons.com/)
+-  [Styled Components](https://www.styled-components.com/)
+-  [React Hook Form](https://react-hook-form.com/)
+-  [React Router Dom](https://v5.reactrouter.com/web/guides/quick-start)
+-  [Phosphor Icons](https://phosphoricons.com/)
 
-## :information_source: Como executar
+## :arrow_forward: Como executar
 
-Para clonar e executar este aplicativo, você precisará do Git, [Node.js v10.16][nodejs] ou superior + [NPM v8.11][npm] ou superior instalado em seu computador. Da sua linha de comando:
+### Requirements
+
+- [Node.js](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/package/npm)
+
+**Clone o projeto e acesse a pasta**
 
 ```bash
-# Clone o repositorio
-$ git clone https://github.com/gabrielviol/desafio02-ignite2022-coffee-delivery.git
+# Clone o repositorio e acesse
+$ git clone https://github.com/gabrielviol/desafio02-ignite2022-coffee-delivery.git && cd desafio02-ignite2022-coffee-delivery/coffee-delivery/
+```
+**E para executar**
 
-# Entre no repositorio
-$ cd desafio02-ignite2022-coffee-delivery/coffee-delivery
-
+```bash
 # Instalar dependencias
 $ npm install
 
 # Executar app
 $ npm run dev
-
 ```
+
+## :camera_flash: Screenshots
+
+<img src="https://github.com/gabrielviol/desafio02-ignite2022-coffee-delivery/blob/0488ad514824d8fb608546039dfc89bb3cbd30f4/coffee-delivery/.github/images/coffee1.png" alt="Preview do projeto" width="800px" >
+
+<img src="https://github.com/gabrielviol/desafio02-ignite2022-coffee-delivery/blob/0488ad514824d8fb608546039dfc89bb3cbd30f4/coffee-delivery/.github/images/coffee2.png" alt="Preview do projeto" width="800px" >
+
+<img src="https://github.com/gabrielviol/desafio02-ignite2022-coffee-delivery/blob/0488ad514824d8fb608546039dfc89bb3cbd30f4/coffee-delivery/.github/images/coffee3.png" alt="Preview do projeto" width="800px" >
+
