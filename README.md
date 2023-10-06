@@ -4,11 +4,12 @@
   <a href="#-layout">Layout</a> •
   <a href="#-techs-and-tools">Techs and tools</a> •
   <a href="#arrow_forward-como-executar">Como executar</a> •
-  <a href="#camera_flash-screenshots">Screenshots</a>
+  <a href="#camera_flash-screenshots">Screenshots</a> •
+  <a href="https://vercel.com/gabrielviol00-hotmailcom/coffee-delivery" target="_blank">Acesse Aqui!</a>
 </p>
-
+<div align="center">
 <img src="https://github.com/gabrielviol/desafio02-ignite2022-coffee-delivery/blob/f411063a949731be14172c8ef7dd4a3f75facd50/coffee-delivery/.github/images/coffeDelivery.png" alt="Preview do projeto" width="500px" >
-
+</div>
 
 ### Aplicação de uma cafeteria fictícia para compra e entrega de seu café.
 
